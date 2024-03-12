@@ -6,7 +6,7 @@ import { addTrailorVideo } from "../utils/moviesSlice";
 const useMovieTrailer = (movieId) => {
   const dispatch = useDispatch();
 
-  const trailerVideo = useSelector((store) => store.movies.trailerVideo);
+  const trailorVideo = useSelector((store) => store.movies?.trailorVideo);
 
   const getMovieVideos = async () => {
     const data = await fetch(
@@ -22,7 +22,7 @@ const useMovieTrailer = (movieId) => {
     dispatch(addTrailorVideo(trailer));
   };
   useEffect(() => {
-    !trailerVideo && getMovieVideos();
+    !trailorVideo && getMovieVideos();
   }, []);
 };
 
